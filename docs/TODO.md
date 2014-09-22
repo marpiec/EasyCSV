@@ -8,6 +8,7 @@ Features:
 3. Add support for custom types converters
 4. Add converters for some standard types: java.util.Date, BigDecimal etc.
 5. ? Support for Array-like output (for better read performance)
+6. Lazy read through iterator with tolist option
 
 Architecture:
 
