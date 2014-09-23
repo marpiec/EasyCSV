@@ -9,6 +9,9 @@ Features:
 4. Add converters for some standard types: java.util.Date, BigDecimal etc.
 5. ? Support for Array-like output (for better read performance)
 6. Lazy read through iterator with tolist option
+7. Output Streams support
+8. transient keyword support
+9. renaming columns (annotations, dictionary map)
 
 Architecture:
 
