@@ -1,8 +1,6 @@
 package pl.mpieciukiewicz.easycsv;
 
-import java.util.AbstractMap;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class TestUtils {
 
@@ -16,5 +14,9 @@ public class TestUtils {
 
     public static <K, V> Map.Entry<K, V> entry(K key, V value) {
         return new AbstractMap.SimpleEntry<K, V>(key, value);
+    }
+
+    public static <V> List<V> list(V... elements) {
+        return new ArrayList<V>(Arrays.asList(elements));
     }
 }

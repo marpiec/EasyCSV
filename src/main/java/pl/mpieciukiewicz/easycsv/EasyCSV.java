@@ -1,11 +1,14 @@
 package pl.mpieciukiewicz.easycsv;
 
 import pl.mpieciukiewicz.easycsv.internal.CSVParser;
+import pl.mpieciukiewicz.easycsv.internal.ListListResultBuilder;
+import pl.mpieciukiewicz.easycsv.internal.MapListResultBuilder;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringReader;
+import java.util.List;
 import java.util.Map;
 
 public class EasyCSV {
@@ -28,7 +31,11 @@ public class EasyCSV {
         return parseToMaps(new StringReader(string));
     }
 
-    public Iterable<Map<String, String>> parseToMaps(Reader reader) {
-        return new CSVParser(config).parseToMaps(reader);
+    public List<Map<String, String>> parseToMaps(Reader reader) {
+        return new CSVParser<List<Map<String, String>>>(config, new MapListResultBuilder()).parse(reader);
+    }
+
+    public List<List<String>> parseToLists(Reader reader) {
+        return new CSVParser<List<List<String>>>(config, new ListListResultBuilder()).parse(reader);
     }
 }
