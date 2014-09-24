@@ -1,21 +1,18 @@
 package pl.mpieciukiewicz.easycsv.internal;
 
-import pl.mpieciukiewicz.easycsv.EasyCSVConfig;
+import pl.mpieciukiewicz.easycsv.Configuration;
+import pl.mpieciukiewicz.easycsv.FormatConfiguration;
 
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class CSVParser<T> {
 
-    private final EasyCSVConfig config;
+    private final FormatConfiguration config;
     private final CharUtils charUtils;
     private final ResultBuilder<T> resultBuilder;
 
-    public CSVParser(EasyCSVConfig config, ResultBuilder<T> resultBuilder) {
+    public CSVParser(FormatConfiguration config, ResultBuilder<T> resultBuilder) {
         this.config = config;
         this.charUtils = new CharUtils(config);
         this.resultBuilder = resultBuilder;

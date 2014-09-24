@@ -1,6 +1,7 @@
 package pl.mpieciukiewicz.easycsv.internal;
 
-import pl.mpieciukiewicz.easycsv.EasyCSVConfig;
+import pl.mpieciukiewicz.easycsv.Configuration;
+import pl.mpieciukiewicz.easycsv.FormatConfiguration;
 
 public class CharUtils {
 
@@ -8,7 +9,7 @@ public class CharUtils {
 
     private final char valueSeparator;
 
-    public CharUtils(EasyCSVConfig config) {
+    public CharUtils(FormatConfiguration config) {
         this.valueSeparator = config.valueSeparator;
     }
 

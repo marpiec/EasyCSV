@@ -13,13 +13,9 @@ import java.util.Map;
 
 public class EasyCSV {
 
-    private final EasyCSVConfig config;
+    private final Configuration config;
 
-    public EasyCSV() {
-        config = EasyCSVConfig.DEFAULT;
-    }
-
-    public EasyCSV(EasyCSVConfig config) {
+    public EasyCSV(Configuration config) {
         this.config = config;
     }
 
@@ -32,10 +28,14 @@ public class EasyCSV {
     }
 
     public List<Map<String, String>> parseToMaps(Reader reader) {
-        return new CSVParser<List<Map<String, String>>>(config, new MapListResultBuilder()).parse(reader);
+        return new CSVParser<List<Map<String, String>>>(config.formatConfiguration, new MapListResultBuilder()).parse(reader);
     }
 
     public List<List<String>> parseToLists(Reader reader) {
-        return new CSVParser<List<List<String>>>(config, new ListListResultBuilder()).parse(reader);
+        return new CSVParser<List<List<String>>>(config.formatConfiguration, new ListListResultBuilder()).parse(reader);
+    }
+
+    public List<List<String>> parseToObjects(Reader reader) {
+        throw new IllegalStateException("Not yet implemented!");
     }
 }
