@@ -3,6 +3,7 @@ package pl.mpieciukiewicz.easycsv;
 import pl.mpieciukiewicz.easycsv.internal.CSVParser;
 import pl.mpieciukiewicz.easycsv.internal.ListListResultBuilder;
 import pl.mpieciukiewicz.easycsv.internal.MapListResultBuilder;
+import pl.mpieciukiewicz.easycsv.internal.ObjectResultBuilder;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -39,7 +40,10 @@ public class EasyCSV {
         return new CSVParser<List<List<String>>>(config.formatConfiguration, new ListListResultBuilder()).parse(reader);
     }
 
-    public List<List<String>> parseToObjects(Reader reader) {
-        throw new IllegalStateException("Not yet implemented!");
+    public <T> List<T> parseToObjects(Reader reader, Class<T> clazz) {
+        if(config.recordsType!=null && config.recordsType!=clazz) {
+            throw new ConfigurationException("Declared Record types is different than currently given type.");
+        }
+        return new CSVParser<List<T>>(config.formatConfiguration, new ObjectResultBuilder<T>(clazz)).parse(reader);
     }
 }
