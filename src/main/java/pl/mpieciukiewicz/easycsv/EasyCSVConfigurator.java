@@ -8,9 +8,6 @@ import java.util.Map;
 
 public class EasyCSVConfigurator {
 
-    static final EasyCSVConfigurator DEFAULT = new EasyCSVConfigurator(
-            new Configuration(null, null, null, false, FormatConfiguration.DEFAULT),
-            false, false, false);
 
     private final Configuration config;
 
@@ -18,7 +15,7 @@ public class EasyCSVConfigurator {
     private final boolean lazyParsingChanged;
     private final boolean formatChanged;
 
-    private EasyCSVConfigurator(Configuration config, boolean recordTypeChanged, boolean lazyParsingChanged, boolean formatChanged) {
+    EasyCSVConfigurator(Configuration config, boolean recordTypeChanged, boolean lazyParsingChanged, boolean formatChanged) {
         this.config = config;
         this.recordTypeChanged = recordTypeChanged;
         this.lazyParsingChanged = lazyParsingChanged;
@@ -86,7 +83,7 @@ public class EasyCSVConfigurator {
         }
     }
 
-    public EasyCSV build() {
+    public EasyCSV create() {
         return new EasyCSV(config);
     }
 

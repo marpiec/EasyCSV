@@ -13,9 +13,13 @@ import java.util.Map;
 
 public class EasyCSV {
 
+    public static final EasyCSVConfigurator DEFAULT = new EasyCSVConfigurator(
+            new Configuration(null, null, null, false, FormatConfiguration.DEFAULT),
+            false, false, false);
+
     private final Configuration config;
 
-    public EasyCSV(Configuration config) {
+    EasyCSV(Configuration config) {
         this.config = config;
     }
 

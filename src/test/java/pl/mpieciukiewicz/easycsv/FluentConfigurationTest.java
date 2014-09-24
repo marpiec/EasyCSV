@@ -20,10 +20,10 @@ public class FluentConfigurationTest {
     public void testConfigurationA() {
 
         //given
-        EasyCSV easyCSV = EasyCSVConfigurator.DEFAULT.
+        EasyCSV easyCSV = EasyCSV.DEFAULT.
                 withColumnsOfTypes(int.class, String.class, double.class).
                 withLazyParsing().
-                build();
+                create();
 
         //when
         Configuration config = extractConfig(easyCSV);
@@ -38,10 +38,10 @@ public class FluentConfigurationTest {
     public void testConfigurationB() {
 
         //given
-        EasyCSV easyCSV = EasyCSVConfigurator.DEFAULT.
+        EasyCSV easyCSV = EasyCSV.DEFAULT.
                 withColumnsMappings(mapping("Column A", int.class), mapping("Column B", int.class), mapping("Column C", int.class)).
                 withEagerParsing().
-                build();
+                create();
 
         //when
         Configuration config = extractConfig(easyCSV);
@@ -56,10 +56,10 @@ public class FluentConfigurationTest {
     public void testConfigurationC() {
 
         //given
-        EasyCSV easyCSV = EasyCSVConfigurator.DEFAULT.
+        EasyCSV easyCSV = EasyCSV.DEFAULT.
                 withLazyParsing().
                 withColumnsFromType(MyRecord.class).
-                build();
+                create();
 
         //when
         Configuration config = extractConfig(easyCSV);

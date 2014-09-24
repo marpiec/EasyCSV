@@ -24,7 +24,7 @@ public class ParsingTest {
 
         //Given
         InputStream csvStream = ParsingTest.class.getResourceAsStream("/complexExcelCsvCommas.csv");
-        EasyCSV easyCSV = EasyCSVConfigurator.DEFAULT.build();
+        EasyCSV easyCSV = EasyCSV.DEFAULT.create();
 
         //then
         testAgainstReferenceData(csvStream, easyCSV);
@@ -35,7 +35,7 @@ public class ParsingTest {
 
         //Given
         InputStream csvStream = ParsingTest.class.getResourceAsStream("/complexExcelCsvSemicolons.csv");
-        EasyCSV easyCSV = EasyCSVConfigurator.DEFAULT.withFileFormat(FormatConfiguration.SEMICOLONS).build();
+        EasyCSV easyCSV = EasyCSV.DEFAULT.withFileFormat(FormatConfiguration.SEMICOLONS).create();
 
 
         //then

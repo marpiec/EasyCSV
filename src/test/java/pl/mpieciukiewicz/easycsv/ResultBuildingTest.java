@@ -19,7 +19,7 @@ public class ResultBuildingTest {
 
         //Given
         InputStream csvStream = ParsingTest.class.getResourceAsStream("/complexExcelCsvCommas.csv");
-        EasyCSV easyCSV = EasyCSVConfigurator.DEFAULT.build();
+        EasyCSV easyCSV = EasyCSV.DEFAULT.create();
 
         //When
         List<List<String>> content = easyCSV.parseToLists(new InputStreamReader(csvStream));
